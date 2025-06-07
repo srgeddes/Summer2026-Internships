@@ -16,26 +16,49 @@ jobs:
       - name: Add upstream and fetch
         run: |
           git remote remove upstream || true
-          git remote add upstream https://github.com/vanshb03/Summer2026-Internships.git
+          git remote add upstream https://github.com/vanshb03/Summer2026-Internships
           git fetch upstream
 
-      - name: Diff README for new jobs
+      - name: Detect new job entries
         id: find_jobs
         run: |
           git diff upstream/dev -- README.md > diff.patch || true
-          grep '^+.*Job:' diff.patch > new_jobs.txt || echo '' > new_jobs.txt
-          echo "new=$(cat new_jobs.txt)" >> $GITHUB_OUTPUT
+          # pull only added table rows (skip header/separator)
+          grep '^+| ' diff.patch | grep -v '^+| -' | sed 's/^+//' > added.txt || true
 
-      - name: Send email if new jobs found
-        if: ${{ steps.find_jobs.outputs.new != '' }}
+          if [ ! -s added.txt ]; then
+            echo "no_new=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          echo "no_new=false" >> $GITHUB_OUTPUT
+
+          subjects=""
+          bodies=""
+          while IFS='|' read -r company role _ link_html _; do
+            company=$(echo "$company" | xargs)
+            role=$(echo "$role" | xargs)
+            url=$(echo "$link_html" | grep -oP 'href="\K[^"]+' || echo "")
+
+            if [ -n "$subjects" ]; then
+              subjects="$subjects, $company - $role"
+              bodies="$bodies"$'\n'"$url"
+            else
+              subjects="$company - $role"
+              bodies="$url"
+            fi
+          done < added.txt
+
+          echo "email_subject=$subjects" >> $GITHUB_OUTPUT
+          echo "email_body=$bodies" >> $GITHUB_OUTPUT
+
+      - name: Send email
+        if: steps.find_jobs.outputs.no_new == 'false'
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: 🚀 New job posted
+          subject: ${{ steps.find_jobs.outputs.email_subject }}
           to: ${{ secrets.NOTIFY_EMAIL }}
-          body: |
-            New job entries detected:
-            ${{ steps.find_jobs.outputs.new }}
+          body: ${{ steps.find_jobs.outputs.email_body }}
