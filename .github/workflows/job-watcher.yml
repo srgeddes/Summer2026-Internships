@@ -24,7 +24,8 @@ jobs:
         id: find_jobs
         run: |
           git diff upstream/dev -- README.md > diff.patch || true
-          grep '^+| ' diff.patch | grep -v '^+| -' | sed 's/^+//' > added.txt || true
+          # only grab added rows that actually have a link
+          grep '^+| ' diff.patch | grep '<a href=' | sed 's/^+//' > added.txt || true
 
           if [ ! -s added.txt ]; then
             echo "no_new=true" >> $GITHUB_OUTPUT
@@ -49,6 +50,7 @@ jobs:
 
           echo "email_subject=$subjects" >> $GITHUB_OUTPUT
           echo "email_body=$bodies" >> $GITHUB_OUTPUT
+
 
       - name: Send email
         if: steps.find_jobs.outputs.no_new == 'false'

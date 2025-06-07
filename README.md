@@ -46,7 +46,7 @@ This repo is inspired by [Pitt CSC & Simplify Repo](https://github.com/SimplifyJ
 
 | Company | Role | Location | Application/Link | Date Posted |
 | ------- | ---- | -------- | ---------------- | ----------- |
-| FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/riley"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
+| FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/tommy"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
 | TransMarket Group | Algorithmic Trader Intern | Chicago, IL | <a href="https://job-boards.greenhouse.io/transmarketgroup/jobs/4749906007?gh_jid=4749906007&utm_source=ouckah"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 05 |
 | ↳ | Quantitative Trader Intern | Chicago, IL | <a href="https://job-boards.greenhouse.io/transmarketgroup/jobs/4749915007?gh_jid=4749915007&utm_source=ouckah"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 05 |
 | ↳ | DevOps/SRE Intern | Chicago, IL | <a href="https://job-boards.greenhouse.io/transmarketgroup/jobs/4749908007?gh_jid=4749908007&utm_source=ouckah"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 05 |
