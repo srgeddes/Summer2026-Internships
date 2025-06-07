@@ -59,6 +59,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: ${{ steps.find_jobs.outputs.email_subject }}
-          to: ${{ secrets.NOTIFY_EMAIL }}
-          body: ${{ steps.find_jobs.outputs.email_body }}
+          from:     ${{ secrets.SMTP_USERNAME }}
+          to:       ${{ secrets.NOTIFY_EMAIL }}
+          subject:  ${{ steps.find_jobs.outputs.email_subject }}
+          body:     ${{ steps.find_jobs.outputs.email_body }}
