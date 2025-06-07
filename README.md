@@ -46,7 +46,7 @@ This repo is inspired by [Pitt CSC & Simplify Repo](https://github.com/SimplifyJ
 
 | Company | Role | Location | Application/Link | Date Posted |
 | ------- | ---- | -------- | ---------------- | ----------- |
-| FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/tommy"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
+| FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/riley"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
 | FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/riley"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
 | FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/grace"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
 | FakeCo     | Software Testing Intern | Remote    | <a href="https://example.com/geb"><img src="https://i.imgur.com/u1KNU8z.png" width="118" alt="Apply"></a> | Jun 07 |
