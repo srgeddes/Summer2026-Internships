@@ -1,0 +1,41 @@
+name: Watch README for new jobs
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Add upstream and fetch
+        run: |
+          git remote remove upstream || true
+          git remote add upstream https://github.com/vanshb03/Summer2026-Internships.git
+          git fetch upstream
+
+      - name: Diff README for new jobs
+        id: find_jobs
+        run: |
+          git diff upstream/main -- README.md > diff.patch || true
+          grep '^+.*Job:' diff.patch > new_jobs.txt || echo '' > new_jobs.txt
+          echo "new=$(cat new_jobs.txt)" >> $GITHUB_OUTPUT
+
+      - name: Send email if new jobs found
+        if: ${{ steps.find_jobs.outputs.new != '' }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: 🚀 New job posted
+          to: ${{ secrets.NOTIFY_EMAIL }}
+          body: |
+            New job entries detected:
+            ${{ steps.find_jobs.outputs.new }}
