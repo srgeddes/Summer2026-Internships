@@ -9,21 +9,21 @@ jobs:
   check-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Add upstream and fetch
         run: |
           git remote remove upstream || true
-          git remote add upstream https://github.com/vanshb03/Summer2026-Internships
+          git remote add upstream https://github.com/vanshb03/Summer2026-Internships.git
           git fetch upstream
 
       - name: Detect new job entries
         id: find_jobs
         run: |
           git diff upstream/dev -- README.md > diff.patch || true
-          # pull only added table rows (skip header/separator)
           grep '^+| ' diff.patch | grep -v '^+| -' | sed 's/^+//' > added.txt || true
 
           if [ ! -s added.txt ]; then
@@ -32,13 +32,12 @@ jobs:
           fi
           echo "no_new=false" >> $GITHUB_OUTPUT
 
-          subjects=""
-          bodies=""
-          while IFS='|' read -r company role _ link_html _; do
+          subjects=''
+          bodies=''
+          while IFS='|' read -r _ company role _ link_html _; do
             company=$(echo "$company" | xargs)
             role=$(echo "$role" | xargs)
-            url=$(echo "$link_html" | grep -oP 'href="\K[^"]+' || echo "")
-
+            url=$(echo "$link_html" | grep -oP 'href="\K[^"]+' || echo '')
             if [ -n "$subjects" ]; then
               subjects="$subjects, $company - $role"
               bodies="$bodies"$'\n'"$url"
@@ -62,4 +61,5 @@ jobs:
           from:     ${{ secrets.SMTP_USERNAME }}
           to:       ${{ secrets.NOTIFY_EMAIL }}
           subject:  ${{ steps.find_jobs.outputs.email_subject }}
-          body:     ${{ steps.find_jobs.outputs.email_body }}
+          body:     |
+            ${{ steps.find_jobs.outputs.email_body }}
