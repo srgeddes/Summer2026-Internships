@@ -22,7 +22,7 @@ jobs:
       - name: Diff README for new jobs
         id: find_jobs
         run: |
-          git diff upstream/main -- README.md > diff.patch || true
+          git diff upstream/dev -- README.md > diff.patch || true
           grep '^+.*Job:' diff.patch > new_jobs.txt || echo '' > new_jobs.txt
           echo "new=$(cat new_jobs.txt)" >> $GITHUB_OUTPUT
 
