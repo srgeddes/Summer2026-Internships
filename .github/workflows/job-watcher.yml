@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: dev
 
       - name: Add upstream and fetch
         run: |
@@ -24,8 +25,8 @@ jobs:
         id: find_jobs
         run: |
           git diff upstream/dev -- README.md > diff.patch || true
-          # only grab added rows that actually have a link
-          grep '^+| ' diff.patch | grep -E '<a href=|<button>' | sed 's/^+//' > added.txt
+          # only grab added rows at the top of the table that have an <a> link
+          grep '^+| ' diff.patch | grep '<a href=' | sed 's/^+//' > added.txt
 
           if [ ! -s added.txt ]; then
             echo "no_new=true" >> $GITHUB_OUTPUT
@@ -41,16 +42,15 @@ jobs:
             url=$(echo "$link_html" | grep -oP 'href="\K[^"]+' || echo '')
             if [ -n "$subjects" ]; then
               subjects="$subjects, $company - $role"
-              bodies="$bodies"$'\n'"$url"
+              bodies="$bodies"$'\n'"$company - $role: $url"
             else
               subjects="$company - $role"
-              bodies="$url"
+              bodies="$company - $role: $url"
             fi
           done < added.txt
 
           echo "email_subject=$subjects" >> $GITHUB_OUTPUT
           echo "email_body=$bodies" >> $GITHUB_OUTPUT
-
 
       - name: Send email
         if: steps.find_jobs.outputs.no_new == 'false'
@@ -65,3 +65,12 @@ jobs:
           subject:  ${{ steps.find_jobs.outputs.email_subject }}
           body:     |
             ${{ steps.find_jobs.outputs.email_body }}
+
+      - name: Merge upstream into dev
+        if: steps.find_jobs.outputs.no_new == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git checkout dev
+          git merge upstream/dev --no-edit
+          git push origin dev
