@@ -21,13 +21,17 @@ jobs:
           git remote add upstream https://github.com/vanshb03/Summer2026-Internships.git
           git fetch upstream
 
+      - name: Generate & dump diff
+        run: |
+          git diff upstream/dev -- README.md > diff.patch || true
+          echo "~~~ diff.patch ~~~"
+          cat diff.patch || true
+          echo "~~~~~~~~~~~~~~~~~~~"
+
       - name: Detect new job entries
         id: find_jobs
         run: |
-          git diff upstream/dev -- README.md > diff.patch || true
-          # only grab added rows at the top of the table that have an <a> link
           grep '^+| ' diff.patch | grep '<a href=' | sed 's/^+//' > added.txt
-
           if [ ! -s added.txt ]; then
             echo "no_new=true" >> $GITHUB_OUTPUT
             exit 0
