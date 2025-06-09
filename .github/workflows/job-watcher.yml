@@ -25,7 +25,7 @@ jobs:
         run: |
           git diff upstream/dev -- README.md > diff.patch || true
           # only grab added rows that actually have a link
-          grep '^+| ' diff.patch | grep '<a href=' | sed 's/^+//' > added.txt || true
+          grep '^+| ' diff.patch | grep -E '<a href=|<button>' | sed 's/^+//' > added.txt
 
           if [ ! -s added.txt ]; then
             echo "no_new=true" >> $GITHUB_OUTPUT
