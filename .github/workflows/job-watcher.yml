@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate & dump diff
         run: |
-          git diff upstream/dev -- README.md > diff.patch || true
+          git diff HEAD..upstream/dev -- README.md > diff.patch || true
           echo "~~~ diff.patch ~~~"
           cat diff.patch || true
           echo "~~~~~~~~~~~~~~~~~~~"
