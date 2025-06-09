@@ -2616,5 +2616,39 @@
         "date_posted": 1749269167,
         "company_url": "",
         "is_visible": true
+    },
+    {
+        "date_updated": 1749424625,
+        "url": "https://careers.ansys.com/job/Evanston-Spring-2026-Intern-Meshing-%28MSPHD%29-IL-60201/1292622200",
+        "locations": [
+            "Evanston, IL"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "Ansys",
+        "title": "Meshing Software Internship",
+        "season": "Spring",
+        "source": "gavieeen",
+        "id": "3117d586-2ae2-4618-b687-e6f5102d5eee",
+        "date_posted": 1749424625,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1749443786,
+        "url": "https://careers.sig.com/job/9377/Quantitative-Trader-Internship-Summer-2026",
+        "locations": [
+            "Bala Cynwyd, PA"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "Susquehanna",
+        "title": "Quantitative Trader Intern",
+        "season": "Summer",
+        "source": "vanshb03",
+        "id": "7e3c6097-3845-4e04-b773-fb8bdf24c654",
+        "date_posted": 1749443786,
+        "company_url": "",
+        "is_visible": true
     }
 ]
