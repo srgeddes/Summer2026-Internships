@@ -1754,13 +1754,13 @@
         "is_visible": true
     },
     {
-        "date_updated": 1748492000,
+        "date_updated": 1751258503,
         "url": "https://job-boards.greenhouse.io/verkada/jobs/4634987007",
         "locations": [
             "San Mateo, CA"
         ],
         "sponsorship": "Other",
-        "active": true,
+        "active": false,
         "company_name": "Verkada",
         "title": "Software Engineering Intern, Mobile",
         "season": "Fall",
@@ -3409,6 +3409,23 @@
         "source": "vanshb03",
         "id": "c77dbfa5-2170-4026-bbab-eabb71bbf194",
         "date_posted": 1751253848,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751386762,
+        "url": "https://www.imc.com/us/careers/jobs/4580810101/",
+        "locations": [
+            "Chicago, IL"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "IMC",
+        "title": "Software Engineer Intern - Summer 2026",
+        "season": "Summer",
+        "source": "ouckah",
+        "id": "3cfcd6cd-4618-4ce6-9d7c-77214ec85fc9",
+        "date_posted": 1751386762,
         "company_url": "",
         "is_visible": true
     }
