@@ -1959,13 +1959,13 @@
         "is_visible": true
     },
     {
-        "date_updated": 1748644489,
+        "date_updated": 1751486202,
         "url": "https://job-boards.greenhouse.io/podium81/jobs/6932534",
         "locations": [
             "Lehi, UT"
         ],
         "sponsorship": "Other",
-        "active": true,
+        "active": false,
         "company_name": "Podium",
         "title": "Security Engineering Intern",
         "season": "Fall",
@@ -4114,6 +4114,93 @@
         "source": "nchalla3",
         "id": "0d19d30a-69cd-43ea-84ca-f07a4ceb6232",
         "date_posted": 1751484214,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751519705,
+        "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/US-MO-St-Louis/Performance-Engineer-Intern--Gaming---Winter-Spring-2026_JR1999627?workerSubType=0c40f6bd1d8f10adf6dae42e46d44a17&workerSubType=ab40a98049581037a3ada55b087049b7",
+        "locations": [
+            "US, MO, St. Louis"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "NVIDIA",
+        "title": "Performance Engineer Intern, Gaming",
+        "season": "Spring",
+        "source": "Prabhjot-khera",
+        "id": "221bd487-189d-406a-8f95-07b9dea37774",
+        "date_posted": 1751519705,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751584655,
+        "url": "https://app.ripplematch.com/v2/public/job/968aeefe",
+        "locations": [
+            "San Francisco, CA"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "Notion",
+        "title": "Software Engineer, AI Intern",
+        "season": "Fall",
+        "source": "nchalla3",
+        "id": "673aa357-b569-48c1-8ceb-de12a936f03d",
+        "date_posted": 1751584655,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751584862,
+        "url": "https://boards.greenhouse.io/embed/job_app?token=5562040004",
+        "locations": [
+            "Remote",
+            "US"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "Whatnot",
+        "title": "Software Engineer Intern",
+        "season": "Fall",
+        "source": "vanshb03",
+        "id": "1c0ccf80-72dc-492b-9f8c-5671a2438af5",
+        "date_posted": 1751584862,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751650291,
+        "url": "https://www.amazon.jobs/en/jobs/2878134/software-development-engineer-intern",
+        "locations": [
+            "Boston, MA",
+            "Seattle, WA"
+        ],
+        "sponsorship": "Offers Sponsorship",
+        "active": true,
+        "company_name": "Amazon",
+        "title": "Software Development Intern",
+        "season": "Summer",
+        "source": "jcas12",
+        "id": "2a8885fd-b48c-4e23-a0a9-37e7822095d5",
+        "date_posted": 1751650291,
+        "company_url": "",
+        "is_visible": true
+    },
+    {
+        "date_updated": 1751650317,
+        "url": "https://careers.tsmc.com/en_US/careers/JobDetail/Summer-2026-TSMC-AZ-Internship-Opportunities-Engineering-Roles/16376",
+        "locations": [
+            "Phoenix, AZ"
+        ],
+        "sponsorship": "Other",
+        "active": true,
+        "company_name": "TSMC",
+        "title": "Computer Integrated Manufacturing (CIM) Engineer Intern",
+        "season": "Summer",
+        "source": "dlln9001",
+        "id": "d4d2ec95-c02d-4152-b8a7-2b496ed9eadf",
+        "date_posted": 1751650317,
         "company_url": "",
         "is_visible": true
     }
